@@ -7,7 +7,7 @@ public class Main {
     private static RouteMap routeMap = new RouteMap();
     public static void main(String[] args)  {
 
-
+        readFile("Sample.rtf"); // Read and parse the data with regex and print the data in a nice format
 
 /*
     Use the function in the RouteMap class called getAllRoutes(start, end) to find route.
@@ -41,13 +41,13 @@ public class Main {
         grab the toString methods from Site, Route, Cargo, and Vehicle as they really do print all
         the information you would need to print.
      */
-    public static void readFile(){
+    public static void readFile(String fileName){
         File sample = null;
         String line = "";
         String[] splitLine = null;
 
         try {
-            sample = new File(Main.class.getResource("Sample.rtf").toURI());
+            sample = new File(Main.class.getResource(fileName).toURI());
 
             Scanner scanner = new Scanner(sample);
             String header = "";
