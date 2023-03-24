@@ -4,8 +4,44 @@ import java.net.URISyntaxException;
 import java.util.*;
 
 public class Main {
+    private static RouteMap routeMap = new RouteMap();
     public static void main(String[] args)  {
-        RouteMap routeMap = new RouteMap();
+
+
+
+/*
+    Use the function in the RouteMap class called getAllRoutes(start, end) to find route.
+    getAllRoutes implements Djtrika's pathfinding algorithm with no heuristics.
+ */
+//
+//        HashMap<Site, Site> foundRoute = routeMap.getAllRoutes(routeMap.getSite("Edwards"), routeMap.getSite("Oda"));
+//        System.out.println("Found Route Size: " + foundRoute.size());
+//        System.out.println("Walking Back:\n");
+//
+//        Site current = routeMap.getSite("Oda");
+//        LinkedList<Site> path = new LinkedList<>();
+//        while(current != routeMap.getSite("Edwards")){
+//            path.push(current);
+//            current = foundRoute.get(current);
+//        }
+//        path.push(routeMap.getSite("Edwards"));
+//
+//        for (Site site : path){
+//            System.out.println(site);
+//        }
+    }
+
+    /*
+        Reads the input file from the resources folder. If you don't have a resources folder you can also
+        simply place the input file next to wherever your built project is stashed. That way you don't have
+        to worry about file paths. You'd access the file directly because it's within the same package like
+        "Sample.rtf".
+
+        Printing the data relies on each object having a toString method implemented. Feel free to
+        grab the toString methods from Site, Route, Cargo, and Vehicle as they really do print all
+        the information you would need to print.
+     */
+    public static void readFile(){
         File sample = null;
         String line = "";
         String[] splitLine = null;
@@ -57,7 +93,7 @@ public class Main {
                             splitLine[1],
                             routeMap.getSite(splitLine[2])
 
-                            );
+                    );
                     routeMap.addVehicle(vehicle);
                 }
 
@@ -84,21 +120,5 @@ public class Main {
         }
 
         System.out.println(routeMap);
-
-        HashMap<Site, Site> foundRoute = routeMap.getAllRoutes(routeMap.getSite("Edwards"), routeMap.getSite("Oda"));
-        System.out.println("Found Route Size: " + foundRoute.size());
-        System.out.println("Walking Back:\n");
-
-        Site current = routeMap.getSite("Oda");
-        LinkedList<Site> path = new LinkedList<>();
-        while(current != routeMap.getSite("Edwards")){
-            path.push(current);
-            current = foundRoute.get(current);
-        }
-        path.push(routeMap.getSite("Edwards"));
-
-        for (Site site : path){
-            System.out.println(site);
-        }
     }
 }
